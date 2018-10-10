@@ -7,11 +7,11 @@ require('jquery-ui/ui/widgets/slider');
 require('jquery-ui/ui/widgets/dialog');
 require('jquery-ui/themes/base/all.css');
 
-var Jupyter;
+var JupyterNGL;
 if (typeof window !== 'undefined') {
-  Jupyter = window['Jupyter'] = window['Jupyter'] || {};
+  JupyterNGL = window['JupyterNGL'] = window['JupyterNGL'] || {};
 } else {
-  Jupyter = Jupyter || {};
+  JupyterNGL = JupyterNGLNGL || {};
 }
 
 var NGLModel = widgets.DOMWidgetModel.extend({
@@ -125,7 +125,7 @@ var NGLView = widgets.DOMWidgetView.extend({
             var command = $("#input_notebook_command").val();
             if (e.which == 13) {
                 $("#input_notebook_command").val("")
-                Jupyter.notebook.kernel.execute(command);
+                JupyterNGL.notebook.kernel.execute(command);
             }
         });
 
@@ -321,10 +321,10 @@ var NGLView = widgets.DOMWidgetView.extend({
     },
 
     setIPythonLikeCell: function() {
-        var cell = Jupyter.notebook.insert_cell_at_bottom();
+        var cell = JupyterNGL.notebook.insert_cell_at_bottom();
 
         var handler = function(event) {
-            var selected_cell = Jupyter.notebook.get_selected_cell();
+            var selected_cell = JupyterNGL.notebook.get_selected_cell();
             if (selected_cell.cell_id === cell.cell_id) {
                 selected_cell.execute();
                 selected_cell.set_text('');
@@ -339,7 +339,7 @@ var NGLView = widgets.DOMWidgetView.extend({
             handler: handler
         };
 
-        Jupyter.keyboard_manager.edit_shortcuts.add_shortcut('enter', action);
+        JupyterNGL.keyboard_manager.edit_shortcuts.add_shortcut('enter', action);
     },
 
     hideNotebookCommandBox: function() {
@@ -799,11 +799,11 @@ var NGLView = widgets.DOMWidgetView.extend({
                 'background': 'transparent',
                 'border': 'none'
             });
-        Jupyter.keyboard_manager.register_events(dialog);
+        JupyterNGL.keyboard_manager.register_events(dialog);
     },
 
     setDialog: function() {
-        var $nb_container = Jupyter.notebook.container;
+        var $nb_container = JupyterNGL.notebook.container;
         var that = this;
         var dialog = this.$container.dialog({
             title: "NGLView",
@@ -843,7 +843,7 @@ var NGLView = widgets.DOMWidgetView.extend({
     },
 
     resizeNotebook: function(width) {
-        var $nb_container = Jupyter.notebook.container;
+        var $nb_container = JupyterNGL.notebook.container;
         $nb_container.width(width);
 
         if (this.$container.dialog) {
@@ -896,7 +896,7 @@ var NGLView = widgets.DOMWidgetView.extend({
 
     cleanOutput: function() {
 
-        var cells = Jupyter.notebook.get_cells();
+        var cells = JupyterNGL.notebook.get_cells();
 
         for (var i = 0; i < cells.length; i++) {
             var cell = cells[i];

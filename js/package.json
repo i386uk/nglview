@@ -1,16 +1,16 @@
 {
-  "name": "nglview-js-widgets",
-  "version": "1.1.7",
-  "description": "nglview-js-widgets",
-  "author": "Hai Nguyen <hainm.comp@gmail.com>, Alexander Rose <alexander.rose@weirdbyte.de>",
+  "name": "jupyterlab_nglview",
+  "version": "0.1.7",
+  "description": "jlab and boke friendly version",
+  "author": "Xiaofan Li <xli@edbr.uk>",
   "license": "MIT",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arose/nglview.git"
+    "url": "git+https://github.com/i386uk/nglview.git"
   },
   "bugs": {
-    "url": "https://github.com/arose/nglview/issues"
+    "url": "https://github.com/i386uk/nglview/issues"
   },
   "files": [
     "dist",
